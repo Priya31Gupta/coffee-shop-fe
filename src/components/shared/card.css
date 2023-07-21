@@ -1,0 +1,26 @@
+.card{
+    max-width: 30em;
+    width: 17em; /* To remove */
+    text-align: left;
+    font-family: monospace;
+}
+.card>.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.card>.flex>.title,.price{
+    margin-bottom: 0;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.card img{
+    border-radius: 0.5em;
+    aspect-ratio: 3/5;
+    height: 25em;
+    width: 100%;
+}
+.card .caroiesCount{
+    color: #6A7280;
+    font-size: 1.2em;
+    font-weight: 500;
+}
