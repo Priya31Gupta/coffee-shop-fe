@@ -1,6 +1,4 @@
 .card{
-    max-width: 30em;
-    width: 17em; /* To remove */
     text-align: left;
     font-family: monospace;
 }
@@ -15,9 +13,9 @@
 }
 .card img{
     border-radius: 0.5em;
-    aspect-ratio: 3/5;
-    height: 25em;
+    height: auto;
     width: 100%;
+    min-height: 30em;
 }
 .card .caroiesCount{
     color: #6A7280;

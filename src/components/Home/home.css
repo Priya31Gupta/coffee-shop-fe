@@ -27,3 +27,9 @@
     font-weight: 500;
     font-family: monospace;
 }
+.product-container{
+    padding: 3em 10em;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(3,1fr);
+}
