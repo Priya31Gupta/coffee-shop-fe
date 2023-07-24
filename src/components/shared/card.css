@@ -1,6 +1,7 @@
 .card{
     text-align: left;
     font-family: monospace;
+    cursor: pointer;
 }
 .card>.flex{
     display: flex;
@@ -16,6 +17,7 @@
     height: auto;
     width: 100%;
     min-height: 30em;
+    object-fit: fill;
 }
 .card .caroiesCount{
     color: #6A7280;

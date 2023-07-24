@@ -15,8 +15,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from '@emotion/styled';
 import { InputBase } from '@mui/material';
+import {Link, BrowserRouter as Router, useHistory} from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,8 +55,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function NavbarComponent(){
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const history = useHistory();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -71,6 +74,9 @@ function NavbarComponent(){
     setAnchorElUser(null);
   };
 
+  const handleClick = () => {
+    history.push(`/product`);
+  }
     return (
         <AppBar position="static" className='navbar'>
           <Container maxWidth="xl">
@@ -106,20 +112,18 @@ function NavbarComponent(){
                 >
                   {pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                      <Router>
+                        <a href="/products" className='link'><Typography textAlign="center"> {page} </Typography></a>
+                      </Router>
                     </MenuItem>
                   ))}
                 </Menu>
               </Box>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{maxWidth: '25em'}}>
                 {pages.map((page) => (
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    {page}
-                  </Button>
+                  <Router key={page}>
+                    <a href="/products" className='link'><Typography textAlign="center"> {page} </Typography></a>
+                  </Router>
                 ))}
               </Box>
 
@@ -133,7 +137,8 @@ function NavbarComponent(){
                 />
               </Search>
 
-              <Box sx={{ flexGrow: 0 }}>
+              <Box sx={{ flexGrow: 0 }} className="flex-nav">
+                <ShoppingCartIcon />&#12644;
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

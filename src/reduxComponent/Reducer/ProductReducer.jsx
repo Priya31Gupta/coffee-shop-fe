@@ -19,7 +19,6 @@ export default function productsReducer(state = initialState, action) {
     case RECEIVE_PRODUCTS:
       return { ...state, loading: true }
     case RECEIVE_PRODUCTS_SUCCESS:
-      console.log(state,"state",action.payload)
       return { products: action.payload, loading: false, hasErrors: false }
     case RECEIVE_PRODUCTS_FAILURE:
       return { ...state, loading: false, hasErrors: true }

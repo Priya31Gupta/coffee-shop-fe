@@ -7,6 +7,8 @@ import './App.css';
 import NavbarComponent from './components/Navbar/Navbar.component';
 import HomeComponent from './components/Home/Home.component';
 import AboutUs from "./components/About-us/AboutUs.component";
+import ProductDetail from './components/ProductDetail/ProductDetail'
+import ProductList from "./components/ProductsList/ProductList";
 
 function App() {
   
@@ -21,9 +23,12 @@ function App() {
           <Route path="/about">
             <AboutUs />
           </Route>
-          {/* <Route path="/product/:id">
-            <Dashboard />
-          </Route> */}
+          <Route exact path="/products">
+            <ProductList />
+          </Route>
+          <Route exact path="/products/:id">
+           <ProductDetail />
+          </Route> 
         </Switch>  
       </Router>
       

@@ -4,3 +4,14 @@
 .justify-between{
     justify-content: space-between;
 }
+.link{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.link:visited{
+    text-decoration: none;
+}
+.flex-nav{
+    display: flex!important;
+    align-items: center;
+}
