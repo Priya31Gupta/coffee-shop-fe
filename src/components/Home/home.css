@@ -26,6 +26,10 @@
     color: #180100;
     font-weight: 500;
     font-family: monospace;
+    position: relative;
+    animation-name: my-animation;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
 }
 .product-container{
     padding: 3em 10em;
@@ -33,3 +37,24 @@
     gap: 2em;
     grid-template-columns: repeat(3,1fr);
 }
+
+  @keyframes my-animation {
+    0%  {transform: rotate(0deg); left: 0px;}
+    25% {transform: rotate(20deg); left: 0px;}
+    50% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    55% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    70% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    100% {
+        transform: rotate(-360deg);
+        left: 0px;
+    }
+  }

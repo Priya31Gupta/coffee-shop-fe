@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchDataFromAPI } from '../../reduxComponent/Action';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Loader from '../shared/Loader';
 
 
 function HomeComponent(){
@@ -17,7 +18,7 @@ function HomeComponent(){
     }, [dispatch])    
 
     if(loading){
-        return <p>Loading posts...</p>
+        return <Loader />
     }
 
     if(hasError){

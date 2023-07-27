@@ -5,13 +5,14 @@ import {fetchProductDetailsAPI} from '../../reduxComponent/Action';
 import './product-detail.css';
 import StarIcon from '@mui/icons-material/Star';
 import ProgressBar from "@ramonak/react-progress-bar";
+import Loader from "../shared/Loader";
 
 
 function ProductDetail(){
     const {id} = useParams();
     const product = useSelector((state) => state.productData.product_data);
-    const loading = useSelector((state) => state.loading);
-    const hasError = useSelector((state) => state.hasErrors);
+    const loading = useSelector((state) => state.productData.loading);
+    const hasError = useSelector((state) => state.productData.hasErrors);
     const dispatch = useDispatch();
 
     
@@ -19,12 +20,12 @@ function ProductDetail(){
     useEffect(() => {
         dispatch(fetchProductDetailsAPI(`https://coffee-shop-r4a2.onrender.com/products/${id}`)); 
         setTimeout(() => {
-            console.log(product,"pro");
+            console.log(product,"pro",loading);
         }, 1000);    
     }, [dispatch])
 
     if(loading){
-        return <div>Loading...</div>
+        return <Loader />
     }
     if(hasError){
         return <div>Error</div>

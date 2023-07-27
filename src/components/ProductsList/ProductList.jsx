@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CardComponent from '../shared/Card';
 import './product-list.css'
+import Loader from '../shared/Loader';
 
 function ProductList(){
     const products = useSelector((state) => state.products.products);
@@ -14,7 +15,7 @@ function ProductList(){
         dispatch(fetchDataFromAPI('https://coffee-shop-r4a2.onrender.com/products'));       
     }, [dispatch])  
 
-    if(loading) return <div>Loading...</div>
+    if(loading) return <Loader />
     if(hasError) return <div>Oops! Something went wrong...</div>
     return(
         <>
