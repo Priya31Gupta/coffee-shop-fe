@@ -1,4 +1,4 @@
-import { fetchDataFromAPI } from '../../reduxComponent/Action';
+import { fetchDataFromAPI } from '../../reduxComponent/Action/Action';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CardComponent from '../shared/Card';

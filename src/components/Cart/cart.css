@@ -1,0 +1,31 @@
+.cart-product-container{
+    padding: 2em 1em;
+}
+.cart-product-container .flexbox{
+    display: flex;
+    padding: 1em 10em;
+    border-bottom: 0.15em solid #8B4428;
+}
+.cart-product-container .flexbox .cart-product-image{
+    width: 20%;
+    object-fit: contain;
+    margin-right: 2em;
+}
+.cart-product-container .flexbox .left-box .title{
+    margin-bottom: 0;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.cart-product-container .flexbox .left-box{
+    text-align: start;
+}
+.remove-cart{
+    background-color: transparent;
+    color: #180100;
+    font-size: 1em;
+    min-width: 8em;
+    cursor: pointer;
+    border: 2px solid #180100;
+    margin-top: 1em;
+    min-height: 3em;
+}

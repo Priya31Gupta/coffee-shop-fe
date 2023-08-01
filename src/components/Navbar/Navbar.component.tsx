@@ -138,7 +138,8 @@ function NavbarComponent(){
               </Search>
 
               <Box sx={{ flexGrow: 0 }} className="flex-nav">
-                <ShoppingCartIcon />&#12644;
+                <a href='/cart' className='shopping-icon'><ShoppingCartIcon />  &#12644;</a>
+                
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

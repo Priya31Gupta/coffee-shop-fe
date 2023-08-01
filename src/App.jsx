@@ -9,8 +9,10 @@ import HomeComponent from './components/Home/Home.component';
 import AboutUs from "./components/About-us/AboutUs.component";
 import ProductDetail from './components/ProductDetail/ProductDetail'
 import ProductList from "./components/ProductsList/ProductList";
+import CartComponent from "./components/Cart/Cart";
 
 function App() {
+  
   
   return (
     <div className="App">
@@ -28,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/products/:id">
            <ProductDetail />
+          </Route> 
+          <Route exact path="/cart">
+           <CartComponent />
           </Route> 
         </Switch>  
       </Router>

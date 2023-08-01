@@ -1,4 +1,4 @@
-import {RECEIVE_PRODUCTS,RECEIVE_PRODUCTS_SUCCESS,RECEIVE_PRODUCTS_FAILURE} from '../Action'
+import {RECEIVE_PRODUCTS,RECEIVE_PRODUCTS_SUCCESS,RECEIVE_PRODUCTS_FAILURE} from '../Action/Action'
 
 export const ProductType = {
   _id: String(),

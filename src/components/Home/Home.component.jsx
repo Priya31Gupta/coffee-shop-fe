@@ -1,7 +1,7 @@
 import CardComponent from '../shared/Card';
 import './home.css';
 import { connect } from 'react-redux';
-import { fetchDataFromAPI } from '../../reduxComponent/Action';
+import { fetchDataFromAPI } from '../../reduxComponent/Action/Action';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../shared/Loader';

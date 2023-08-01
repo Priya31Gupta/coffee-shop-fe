@@ -15,3 +15,11 @@
     display: flex!important;
     align-items: center;
 }
+.shopping-icon{
+    text-decoration: none;
+    color: white;
+}
+.shopping-icon :is(:visited,:hover){
+    text-decoration: none;
+    color: white;
+}

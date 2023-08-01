@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import {fetchProductDetailsAPI} from '../../reduxComponent/Action';
+import {fetchProductDetailsAPI, addToCart} from '../../reduxComponent/Action/Action';
 import './product-detail.css';
 import StarIcon from '@mui/icons-material/Star';
 import ProgressBar from "@ramonak/react-progress-bar";
@@ -15,13 +15,17 @@ function ProductDetail(){
     const hasError = useSelector((state) => state.productData.hasErrors);
     const dispatch = useDispatch();
 
-    
+    const handleAddToCart = () => {
+        const payload = {
+            product: [id],
+            user_id: '64b96d78e026ef1234d4c59f'
+        }
+        const url = 'https://coffee-shop-r4a2.onrender.com/cart/'
+        dispatch(addToCart(url,payload))
+    }    
     
     useEffect(() => {
-        dispatch(fetchProductDetailsAPI(`https://coffee-shop-r4a2.onrender.com/products/${id}`)); 
-        setTimeout(() => {
-            console.log(product,"pro",loading);
-        }, 1000);    
+        dispatch(fetchProductDetailsAPI(`https://coffee-shop-r4a2.onrender.com/products/${id}`));    
     }, [dispatch])
 
     if(loading){
@@ -56,7 +60,7 @@ function ProductDetail(){
                             CalorieCount : &#12644; <span className="badge badge-calorie">{product.product.calorieCount}</span> 
                         </span>
                         <div className="btn-cont">
-                            <button className="cart-btn"> Add To Cart</button>
+                            <button className="cart-btn" onClick={handleAddToCart}> Add To Cart</button>
                         </div>
                     </div>
                 </div>
