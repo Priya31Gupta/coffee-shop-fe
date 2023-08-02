@@ -34,6 +34,9 @@ function App() {
           <Route exact path="/cart">
            <CartComponent />
           </Route> 
+          <Route exact path="/about-us">
+           <AboutUs />
+          </Route> 
         </Switch>  
       </Router>
       
