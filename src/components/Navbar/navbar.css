@@ -7,6 +7,7 @@
 .link{
     color: #FFFFFF;
     text-decoration: none;
+    margin-right: 2em;
 }
 .link:visited{
     text-decoration: none;

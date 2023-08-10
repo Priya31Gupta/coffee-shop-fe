@@ -18,7 +18,6 @@ import { InputBase } from '@mui/material';
 import {Link, BrowserRouter as Router, useHistory} from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Products'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -110,21 +109,19 @@ function NavbarComponent(){
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <MenuItem  onClick={handleCloseNavMenu}>
                       <Router>
-                        <a href="/products" className='link'><Typography textAlign="center"> {page} </Typography></a>
+                        <a href="/products" className='link'><Typography textAlign="center"> Products </Typography></a>
+                        <a href="/about-us" className='link'><Typography textAlign="center"> About Us </Typography></a>
                       </Router>
                     </MenuItem>
-                  ))}
                 </Menu>
               </Box>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{maxWidth: '25em'}}>
-                {pages.map((page) => (
-                  <Router key={page}>
-                    <a href="/products" className='link'><Typography textAlign="center"> {page} </Typography></a>
+                  <Router>
+                    <a href="/products" className='link'><Typography textAlign="center"> Products </Typography></a>
+                    <a href="/about-us" className='link'><Typography textAlign="center"> About Us </Typography></a>
                   </Router>
-                ))}
               </Box>
 
               <Search>
