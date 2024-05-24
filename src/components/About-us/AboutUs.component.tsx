@@ -1,19 +1,19 @@
 import TechCarousel from '../shared/TechCarousel';
 import './about-us.css';
 const imageList = [
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e59439cb0de601_Ruby_On_Rails_Logo.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e594257d0de60a_1280px-Node.js_logo.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e5945d3e0de603_1200px-Amazon_Web_Services_Logo.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e594a9b00de614_2048px-Unofficial_JavaScript_logo_2.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e5947c9b0de608_2560px-Twilio-logo-red.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e59433920de60c_3-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e5943a960de607_CSS3_logo_and_wordmark.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e594f54f0de602_512px-HTML5_logo_and_wordmark.svg.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e5943e7a0de605_social-icon-google-cloud-1200-630-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e59428f60de604_Angular_full_color_logo.svg.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e594327d0de611_2560px-Django_logo.svg-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e59466db0de60b_Gatsby_Logo-p-500.png',
-    'https://uploads-ssl.webflow.com/628754a254e594634d0de4a7/628754a254e59405300de60f_HIghest%2520possible%2520gro-p-500.png'
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689877180/coffee-shop/Affogato_okslhx.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689876675/coffee-shop/Untitled_design_6_amlqbe.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689876921/coffee-shop/Frappe_fw4jz5.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689876521/coffee-shop/Untitled_design_5_rq7hxk.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689877340/coffee-shop/RedEye_o6rtwz.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689876247/coffee-shop/Macchiato_pl8ckj.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689875764/coffee-shop/Untitled_design_4_axkols.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689875035/coffee-shop/latte_yzdp5l.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689799816/coffee-shop/A_box_of_coffee_0_3_tmodzd.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689799814/coffee-shop/A_box_of_coffee_0_1_whhtfz.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689799414/coffee-shop/A-box-of-coffee-powder-with-label-Cappuccino_k29kgc.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689799403/coffee-shop/A-box-of-coffee-powder-with-label-Flat-White_yvvq6j.png',
+    'https://res.cloudinary.com/dtzzxe28w/image/upload/v1689799300/coffee-shop/A_box_of_coffee_0_2_eumaod.png'
 ]
 function AboutUs(){
     return (
@@ -74,6 +74,7 @@ function AboutUs(){
                     <img src='https://res.cloudinary.com/dtzzxe28w/image/upload/v1691703039/coffee-shop/icons8-twitter_dudobk.svg' alt='twitter' />
                 </a>
             </div>
+            <TechCarousel imageList={imageList}/>
         </div>
     )
 }

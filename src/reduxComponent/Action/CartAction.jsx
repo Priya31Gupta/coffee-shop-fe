@@ -36,6 +36,7 @@ export const fetchCartData = (url) => {
     }
   }
 }
+
 export const deleteProductFromCart = (url,id) => {
   return async (dispatch) => {
     dispatch(getCartDetails(url,id));

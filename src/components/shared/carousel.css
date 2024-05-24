@@ -1,0 +1,17 @@
+.splide__slide img {
+  max-width: 30em;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.splide__slide {
+  display: flex;
+  justify-content: center;
+}
+.splide__arrow {
+  background-color: transparent !important;
+}
+.splide__arrow svg {
+  height: 6.2em !important;
+  width: 6.2em !important;
+}

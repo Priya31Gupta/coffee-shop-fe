@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST'
 export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS'
@@ -20,7 +20,6 @@ export const getPostsSuccess = (products) => ({
 })
 
 export const getPostsFailure = () => ({ type: RECEIVE_PRODUCTS_FAILURE });
-
 export const getProductDetails = () => ({type: PRODUCT_DETAILS});
 
 export const getProductDetailsSuccess = (product) => ({
@@ -72,3 +71,4 @@ export const addToCart = (url, body) => {
     }
   }
 }
+

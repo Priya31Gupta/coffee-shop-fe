@@ -1,6 +1,6 @@
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import './App.css';
@@ -10,35 +10,25 @@ import AboutUs from "./components/About-us/AboutUs.component";
 import ProductDetail from './components/ProductDetail/ProductDetail'
 import ProductList from "./components/ProductsList/ProductList";
 import CartComponent from "./components/Cart/Cart";
-
+import { CartProvider } from './reduxComponent/cartContext';
 function App() {
   
   
   return (
     <div className="App">
+      <CartProvider>
       <NavbarComponent />
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomeComponent />
-          </Route>
-          <Route path="/about">
-            <AboutUs />
-          </Route>
-          <Route exact path="/products">
-            <ProductList />
-          </Route>
-          <Route exact path="/products/:id">
-           <ProductDetail />
-          </Route> 
-          <Route exact path="/cart">
-           <CartComponent />
-          </Route> 
-          <Route exact path="/about-us">
-           <AboutUs />
-          </Route> 
-        </Switch>  
+        <Routes>
+          <Route path="/" element={<HomeComponent />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartComponent />} />
+          <Route path="/about-us" element={<AboutUs />} />
+        </Routes>  
       </Router>
+      </CartProvider>
       
     </div>
   );

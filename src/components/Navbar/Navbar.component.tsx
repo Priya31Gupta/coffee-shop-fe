@@ -7,56 +7,18 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import styled from '@emotion/styled';
-import { InputBase } from '@mui/material';
-import {Link, BrowserRouter as Router, useHistory} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from '../../reduxComponent/cartContext';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: '0.75em',
-  backgroundColor: 'transparent',
-  '&:hover': {
-    backgroundColor: '#ffffff40',
-  },
-  marginRight: '1em',
-  marginLeft: 0,
-  width: '100%',
-  maxWidth: '20em'
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: '0 0.75em',
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: '1em 1em 1em 0',
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + 4px)`,
-    transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    width: '100%'
-  },
-}));
 
 function NavbarComponent(){
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const history = useHistory();
+  const cartContext = React.useContext(CartContext);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -73,9 +35,12 @@ function NavbarComponent(){
     setAnchorElUser(null);
   };
 
-  const handleClick = () => {
-    history.push(`/product`);
+  if (!cartContext) {
+    return null;
   }
+
+  const { cartCount } = cartContext;
+
     return (
         <AppBar position="static" className='navbar'>
           <Container maxWidth="xl">
@@ -111,6 +76,7 @@ function NavbarComponent(){
                 >
                     <MenuItem  onClick={handleCloseNavMenu}>
                       <Router>
+                        <a href="/" className='link'><Typography textAlign="center"> coffee shop </Typography></a>
                         <a href="/products" className='link'><Typography textAlign="center"> Products </Typography></a>
                         <a href="/about-us" className='link'><Typography textAlign="center"> About Us </Typography></a>
                       </Router>
@@ -119,51 +85,16 @@ function NavbarComponent(){
               </Box>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{maxWidth: '25em'}}>
                   <Router>
+                    <a href="/" className='link'><Typography textAlign="center"> coffee shop </Typography></a>
                     <a href="/products" className='link'><Typography textAlign="center"> Products </Typography></a>
                     <a href="/about-us" className='link'><Typography textAlign="center"> About Us </Typography></a>
                   </Router>
               </Box>
 
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search>
 
-              <Box sx={{ flexGrow: 0 }} className="flex-nav">
-                <a href='/cart' className='shopping-icon'><ShoppingCartIcon />  &#12644;</a>
+              <Box sx={{ flexGrow: 0, position:'relative' }} className="flex-nav">
+                <a href='/cart' className='shopping-icon'><ShoppingCartIcon /> {cartCount > 0 && <span className='round'>{cartCount}</span>}  &#12644;</a>
                 
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
               </Box>
             </Toolbar>
           </Container>

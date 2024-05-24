@@ -1,5 +1,5 @@
 import './card.css';
-import { useHistory } from  'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function CardComponent({imgUrl, title, calorieCount, price, id}: {imgUrl: string,
     title: string,
@@ -7,10 +7,10 @@ function CardComponent({imgUrl, title, calorieCount, price, id}: {imgUrl: string
     price : string,
     id: number,
     }){
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleClick = (id: number) => {
-        history.push(`/products/${id}`);
+        navigate(`/products/${id}`);
     }
     
     return (<>

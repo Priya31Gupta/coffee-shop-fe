@@ -1,60 +1,79 @@
-.banner{
-    width: 100%;
-    aspect-ratio: 6/2;
-    position: relative;
+.banner {
+  width: 100%;
+  aspect-ratio: 6/2;
+  position: relative;
 }
-.overlay-btn{
-    position: absolute;
-    background-color: transparent;
-    color: #180100;
-    font-size: 1.5em;
-    min-width: 8em;
-    top: 20em;
-    left: 33em;
-    border-radius: 1em;
-    min-height: 2em;
-    cursor: pointer;
-    border: 2px solid #180100;
+.overlay-btn {
+  position: absolute;
+  background-color: transparent;
+  color: #180100;
+  font-size: 1.5em;
+  min-width: 8em;
+  top: 20em;
+  left: 33em;
+  border-radius: 1em;
+  min-height: 2em;
+  cursor: pointer;
+  border: 2px solid #180100;
 }
-.overlay-btn:hover{
-    background-color: #ffffff40;
-    transition: ease-in;
+.overlay-btn:hover {
+  background-color: #ffffff40;
+  transition: ease-in;
 }
-.quick-quote{
-    font-size: 3.5em;
-    text-align: center;
-    color: #180100;
-    font-weight: 500;
-    font-family: monospace;
-    position: relative;
-    animation-name: my-animation;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
+.quick-quote {
+  font-size: 3.5em;
+  text-align: center;
+  color: #180100;
+  font-weight: 500;
+  font-family: monospace;
+  position: relative;
+  animation-name: bounce;
+  animation-duration: 3s;
 }
-.product-container{
-    padding: 3em 10em;
-    display: grid;
-    gap: 2em;
-    grid-template-columns: repeat(3,1fr);
+.animated-letter {
+  display: inline-block;
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-delay: calc(0.1s * var(--index));
+}
+.product-container {
+  padding: 3em 10em;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-  @keyframes my-animation {
-    0%  {transform: rotate(0deg); left: 0px;}
-    25% {transform: rotate(20deg); left: 0px;}
-    50% {
-        transform: rotate(0deg);
-        left: 500px;
-    }
-    55% {
-        transform: rotate(0deg);
-        left: 500px;
-    }
-    70% {
-        transform: rotate(0deg);
-        left: 500px;
-    }
-    100% {
-        transform: rotate(-360deg);
-        left: 0px;
-    }
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .product-container {
+    padding: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .overlay-btn {
+    font-size: 1em;
+    top: 17.5em;
+    left: 27em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-container {
+    padding: 15px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .overlay-btn {
+    font-size: 1em;
+    top: 11.5em;
+    left: 12em;
+  }
+}

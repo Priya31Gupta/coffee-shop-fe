@@ -1,26 +1,42 @@
-.navbar{
-    background-color: #473320 !important;
+.navbar {
+  background-color: #473320 !important;
 }
-.justify-between{
-    justify-content: space-between;
+.justify-between {
+  justify-content: space-between;
 }
-.link{
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-right: 2em;
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 2em;
 }
-.link:visited{
-    text-decoration: none;
+.link:visited {
+  text-decoration: none;
 }
-.flex-nav{
-    display: flex!important;
-    align-items: center;
+.flex-nav {
+  display: flex !important;
+  align-items: center;
 }
-.shopping-icon{
-    text-decoration: none;
-    color: white;
+.shopping-icon {
+  text-decoration: none;
+  color: white;
 }
-.shopping-icon :is(:visited,:hover){
-    text-decoration: none;
-    color: white;
+.shopping-icon :is(:visited, :hover) {
+  text-decoration: none;
+  color: white;
+}
+.round {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: 0;
+  left: 13px;
+  font-size: 12px;
+}
+@media screen and (max-width: 1024px) {
+  .round {
+    top: -2%;
+    right: 11%;
+  }
 }
