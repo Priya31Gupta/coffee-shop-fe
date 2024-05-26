@@ -6,8 +6,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../shared/Loader';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../../reduxComponent/cartContext';
-import React, { useContext } from 'react';
 
 function HomeComponent(){
     const products = useSelector((state) => state.products);
