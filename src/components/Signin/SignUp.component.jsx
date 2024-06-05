@@ -13,7 +13,7 @@ function SignUpComponent(){
   const navigate = useNavigate();
   const signup = async()=>{
     try {
-        const response = await fetch('http://localhost:4000/signup', {
+        const response = await fetch('https://coffee-shop-r4a2.onrender.com/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
