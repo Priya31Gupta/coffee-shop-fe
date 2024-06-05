@@ -9,7 +9,7 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartContext } from '../../reduxComponent/cartContext';
@@ -19,6 +19,17 @@ function NavbarComponent(){
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const cartContext = React.useContext(CartContext);
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean> (false);
+
+
+  React.useEffect(()=>{
+    const userData = localStorage.getItem('user');
+    if(userData && JSON.parse(userData)){
+      setIsLoggedIn(true);
+    }else{
+      setIsLoggedIn(false);
+    }
+  })
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -34,6 +45,12 @@ function NavbarComponent(){
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.href = '/signin';
+  }
 
   if (!cartContext) {
     return null;
@@ -95,6 +112,12 @@ function NavbarComponent(){
               <Box sx={{ flexGrow: 0, position:'relative' }} className="flex-nav">
                 <a href='/cart' className='shopping-icon'><ShoppingCartIcon /> {cartCount > 0 && <span className='round'>{cartCount}</span>}  &#12644;</a>
                 
+                {
+                  isLoggedIn ? <div className="logout" onClick={handleLogOut}> Logout</div> : <div className="flex">
+                    <a href='/signin' className='link'> SignIN</a>
+                    <a href='/signup' className='link'> SignUP</a>
+                  </div>
+                }
               </Box>
             </Toolbar>
           </Container>

@@ -16,13 +16,17 @@ function CartComponent(){
         const url = 'https://coffee-shop-r4a2.onrender.com/cart'
         dispatch(deleteProductFromCart(url,id));
         setTimeout(() => {
-            dispatch(fetchCartData('https://coffee-shop-r4a2.onrender.com/cart/64b96d78e026ef1234d4c59f'));      
+            const userData = localStorage.getItem('user');
+            if(userData && JSON.parse(userData))
+            dispatch(fetchCartData(`https://coffee-shop-r4a2.onrender.com/cart/${JSON.parse(userData)._id}`));      
         }, 500);
         
     }
 
     useEffect(() => {
-        dispatch(fetchCartData('https://coffee-shop-r4a2.onrender.com/cart/64b96d78e026ef1234d4c59f'));      
+        const userData = localStorage.getItem('user');
+        if(userData && JSON.parse(userData))
+        dispatch(fetchCartData(`https://coffee-shop-r4a2.onrender.com/cart/${JSON.parse(userData)._id}`));      
     }, [dispatch])    
 
     if(loading){

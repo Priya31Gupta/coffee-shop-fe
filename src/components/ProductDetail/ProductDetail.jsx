@@ -18,12 +18,16 @@ function ProductDetail(){
     const { handleAddToCart } = useContext(CartContext);
 
     const handleAddToCartProduct = () => {
-        const payload = {
-            product: [id],
-            user_id: '64b96d78e026ef1234d4c59f'
+        const userData = localStorage.getItem('user');
+        if(userData && JSON.parse(userData)){
+            const payload = {
+                product: [id],
+                user_id: JSON.parse(userData)._id
+            }
+            const url = 'https://coffee-shop-r4a2.onrender.com/cart/'
+            handleAddToCart(url,payload)
         }
-        const url = 'https://coffee-shop-r4a2.onrender.com/cart/'
-        handleAddToCart(url,payload)
+        
     }    
     
     useEffect(() => {

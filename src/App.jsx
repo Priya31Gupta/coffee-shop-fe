@@ -11,6 +11,8 @@ import ProductDetail from './components/ProductDetail/ProductDetail'
 import ProductList from "./components/ProductsList/ProductList";
 import CartComponent from "./components/Cart/Cart";
 import { CartProvider } from './reduxComponent/cartContext';
+import SignInComponent from "./components/Signin/Signin.component";
+import SignUpComponent from "./components/Signin/SignUp.component";
 function App() {
   
   
@@ -21,6 +23,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomeComponent />} />
+          <Route path="/signin" element={<SignInComponent />} />
+          <Route path="/signup" element={<SignUpComponent />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<ProductDetail />} />

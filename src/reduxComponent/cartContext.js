@@ -11,7 +11,11 @@ export const CartProvider = ({ children }) => {
     const fetchCartCount = async () => {
       try {
         // Replace 'your-api-endpoint' with your actual API endpoint
-        const response = await fetch('https://coffee-shop-r4a2.onrender.com/cart/64b96d78e026ef1234d4c59f');
+        let userID = null;
+        const userData = localStorage.getItem('user');
+        if(userData && JSON.parse(userData))
+          userID = JSON.parse(userData)._id;
+        const response = await fetch(`https://coffee-shop-r4a2.onrender.com/cart/${userID}`);
         const data = await response.json();
         // Assuming API returns the count directly
         setCartCount(data.length); // Adjust according to your API response structure
