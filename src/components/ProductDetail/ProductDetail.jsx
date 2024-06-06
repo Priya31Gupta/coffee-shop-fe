@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {fetchProductDetailsAPI, addToCart} from '../../reduxComponent/Action/Action';
 import './product-detail.css';
 import StarIcon from '@mui/icons-material/Star';
@@ -15,6 +15,7 @@ function ProductDetail(){
     const loading = useSelector((state) => state.productData.loading);
     const hasError = useSelector((state) => state.productData.hasErrors);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { handleAddToCart } = useContext(CartContext);
 
     const handleAddToCartProduct = () => {
@@ -27,7 +28,9 @@ function ProductDetail(){
             const url = 'https://coffee-shop-r4a2.onrender.com/cart/'
             handleAddToCart(url,payload)
         }
-        
+        else{
+            navigate('/signin')
+        }
     }    
     
     useEffect(() => {

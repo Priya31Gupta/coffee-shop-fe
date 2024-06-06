@@ -27,7 +27,6 @@ function SignUpComponent(){
   
         const data = await response.json();
   
-        // You can also store token in localStorage or sessionStorage
         localStorage.setItem('token', JSON.stringify(data.token));
         localStorage.setItem('user', JSON.stringify(data.user));
         console.log({data});
@@ -42,31 +41,35 @@ function SignUpComponent(){
     return(
         <>
             <Box>
-                <Card sx={{width: '50%', justifySelf:'center', margin:'auto', marginTop:"20%",padding:'5%'}}>
-                    <div className="title"><strong>Coffee Shop</strong></div>
+                <Card sx={{width: '30%', justifySelf:'center', margin:'auto', marginTop:"5%",padding:'5%'}}>
+                    <div className="title-signup">
+                     <img src='https://res.cloudinary.com/dtzzxe28w/image/upload/v1691701503/coffee-cup_ifepna.jpg' alt='coffee-cup' className='coffee-cup'/>
+                      <strong>Coffee Shop</strong>
+                      <img src='https://res.cloudinary.com/dtzzxe28w/image/upload/v1691701503/coffee-cup_ifepna.jpg' alt='coffee-cup' className='coffee-cup'/>  
+                    </div>
                     <TextField
-                        required
-                        id="outlined-required"
-                        label="Email"
-                        defaultValue=""
-                        sx={{marginBottom:'20px', width: "100%"}}
-                        value={email}
-                        onChange={(event)=>{setEmail(event.target.value)}}
+                      required
+                      id="outlined-required"
+                      label="Email"
+                      defaultValue=""
+                      sx={{marginBottom:'20px', width: "100%"}}
+                      value={email}
+                      onChange={(event)=>{setEmail(event.target.value)}}
                     />
                     <br/>
                     <TextField
-                        id="outlined-password-input"
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
-                        sx={{marginBottom:'20px',width: "100%"}}
-                        value={password}
-                        onChange={(event)=>{setPassword(event.target.value)}}
+                      id="outlined-password-input"
+                      label="Password"
+                      type="password"
+                      autoComplete="current-password"
+                      sx={{marginBottom:'20px',width: "100%"}}
+                      value={password}
+                      onChange={(event)=>{setPassword(event.target.value)}}
                     />
                 <Button
-                    variant='contained'
-                    sx={{width:'100%'}}
-                    onClick={signup}
+                  variant='contained'
+                  className='signup-btn'
+                  onClick={signup}
                 > SignUp</Button>
                 </Card>
                 

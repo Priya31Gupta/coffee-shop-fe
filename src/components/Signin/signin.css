@@ -1,5 +1,31 @@
-.title{
+.title-signup{
     margin: 2% auto;
     color: #473320;
-    font-size:larger;
+    font-size: larger;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.coffee-cup{
+    width: 10%;
+    aspect-ratio: 5/5;
+    object-fit: contain;
+    mix-blend-mode: darken;
+    transform: rotate(3deg);
+}
+.left-cup{
+    transform: rotate(-3deg);
+}
+.signup-btn{
+    width: 100%;
+    background-color: #473320 !important;
+}
+.signup-btn:hover{
+    background-color: #997d63 !important;
+}
+@media screen and (max-width: 1024px) {
+    .coffee-cup{
+      width: 35%;
+    }
 }

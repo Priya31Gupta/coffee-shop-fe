@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { Button, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './signin.css';
+import { useHistory } from 'react-router-dom';
 
 
 function SignInComponent(){
@@ -32,7 +33,7 @@ function SignInComponent(){
         localStorage.setItem('user', JSON.stringify(data.user));
         console.log({data});
         if(data){
-         navigate('/')
+          navigate(-1);
         }
         
       } catch (error) {
@@ -42,8 +43,12 @@ function SignInComponent(){
     return(
         <>
             <Box>
-                <Card sx={{width: '50%', justifySelf:'center', margin:'auto', marginTop:"20%",padding:'5%'}}>
-                    <div className="title"><strong>Coffee Shop</strong></div>
+                <Card sx={{width: '30%', justifySelf:'center', margin:'auto', marginTop:"5%",padding:'5%'}}>
+                    <div className="title-signup">
+                     <img src='https://res.cloudinary.com/dtzzxe28w/image/upload/v1691701503/coffee-cup_ifepna.jpg' alt='coffee-cup' className='coffee-cup'/>
+                      <strong>Coffee Shop</strong>
+                      <img src='https://res.cloudinary.com/dtzzxe28w/image/upload/v1691701503/coffee-cup_ifepna.jpg' alt='coffee-cup' className='coffee-cup'/>  
+                    </div>
                     <TextField
                         required
                         id="outlined-required"
@@ -65,7 +70,7 @@ function SignInComponent(){
                     />
                 <Button
                     variant='contained'
-                    sx={{width:'100%'}}
+                    className='signup-btn'
                     onClick={signin}
                 > SignIn</Button>
                 </Card>

@@ -110,7 +110,7 @@ function NavbarComponent(){
 
 
               <Box sx={{ flexGrow: 0, position:'relative' }} className="flex-nav">
-                <a href='/cart' className='shopping-icon'><ShoppingCartIcon /> {cartCount > 0 && <span className='round'>{cartCount}</span>}  &#12644;</a>
+                <a href='/cart' className='shopping-icon'><ShoppingCartIcon /> {cartCount > 0 && <span className='round'><span className=''>{cartCount}</span></span>}  &#12644;</a>
                 
                 {
                   isLoggedIn ? <div className="logout" onClick={handleLogOut}> Logout</div> : <div className="flex">
